@@ -15,9 +15,13 @@ NB_MODULE(qu3e_ext, m) {
         .def("Set", nb::overload_cast<const q3Vec3&, float>(&q3Mat3::Set));
     // transform
     nb::class_<q3Transform>(m, "Transform")
+        .def(nb::init<>())
         .def(nb::init<q3Vec3, q3Mat3>())
         .def_ro("position", &q3Transform::position)
         .def_ro("rotation", &q3Transform::rotation);
+
+    // util functions
+    m.def("q3Identity", [](q3Mat3& m) { q3Identity(m); });
     // scene
     nb::class_<q3Scene>(m, "Scene")
         .def(nb::init<float, q3Vec3, int>())
