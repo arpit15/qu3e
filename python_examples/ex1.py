@@ -11,8 +11,9 @@ box_def = qu3e.BoxDef()
 localSpace = qu3e.Transform()
 qu3e.q3Identity(localSpace)
 box_def.Set(localSpace, qu3e.Vec3(50.0, 1.0, 50.0))
-body.AddShape(box_def)
+body.add_box(box_def)
 
 for i in range(10):
-    print(f"step {i}")
     scene.step()
+
+print("done")
