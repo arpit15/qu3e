@@ -1,6 +1,8 @@
+from time import time
 import qu3e_ext as qu3e
 
-scene = qu3e.Scene(1.0 / 60.0)
+start_time = time()
+scene = qu3e.Scene(1.0 / 60.0, qu3e.Vec3(0.0, -9.8, 0.0), 5)
 
 # add floor
 body_def = qu3e.BodyDef()
@@ -28,9 +30,9 @@ body_def.position.Set(2.5, 5.0, 0.0)
 body = scene.create_body(body_def)
 body.add_box(box_def)
 
-for i in range(10):
+for i in range(1000):
     scene.step()
 
 scene.dump("scene.txt")
-
-print("done")
+end_time = time()
+print(f"done in {end_time - start_time:.4f} seconds")
