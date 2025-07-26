@@ -54,11 +54,12 @@ NB_MODULE(qu3e_ext, m) {
     .def_ro("angle", &q3BodyDef::angle)
     .def_ro("linear_velocity", &q3BodyDef::linearVelocity)
     .def_ro("angular_velocity", &q3BodyDef::angularVelocity)
-    .def_ro("body_type", &q3BodyDef::bodyType);
+    .def_rw("body_type", &q3BodyDef::bodyType);
     // box def
     nb::class_<q3BoxDef>(m, "BoxDef")
     .def(nb::init<>())
-    .def("Set", &q3BoxDef::Set);
+    .def("Set", &q3BoxDef::Set)
+    .def("SetRestitution", &q3BoxDef::SetRestitution);
     // box
     nb::class_<q3Box>(m, "Box");
     // boxPtr
@@ -73,6 +74,11 @@ NB_MODULE(qu3e_ext, m) {
         .def(nb::init<float>())
         .def(nb::init<float, q3Vec3, int>())
         .def("step", &q3Scene::Step)
+        .def("dump", [](q3Scene& scene, const char* filename) {
+            FILE* file = fopen(filename, "w");
+            scene.Dump(file);
+            fclose(file);
+        })
         .def("create_body", [](q3Scene& scene, const q3BodyDef& def) {
             return BodyPtr(scene.CreateBody(def));
         });

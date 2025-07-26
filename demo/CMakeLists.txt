@@ -13,6 +13,7 @@ set(demo_hdrs
 	BoxStack.h
 	Clock.h
 	Test.h
+	UnstableWall.h
 )
 
 source_group(Include FILES ${demo_srcs} ${demo_hdrs})
