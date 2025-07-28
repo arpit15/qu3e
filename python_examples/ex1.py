@@ -11,6 +11,7 @@ body = scene.create_body(body_def)
 
 box_def = qu3e.BoxDef()
 box_def.SetRestitution(0.0)
+box_def.SetFriction(0.5)
 
 localSpace = qu3e.Transform()
 qu3e.q3Identity(localSpace)

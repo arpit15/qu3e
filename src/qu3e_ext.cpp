@@ -59,6 +59,8 @@ NB_MODULE(qu3e_ext, m) {
     nb::class_<q3BoxDef>(m, "BoxDef")
     .def(nb::init<>())
     .def("Set", &q3BoxDef::Set)
+    .def("SetDensity", &q3BoxDef::SetDensity)
+    .def("SetFriction", &q3BoxDef::SetFriction)
     .def("SetRestitution", &q3BoxDef::SetRestitution);
     // box
     nb::class_<q3Box>(m, "Box");
