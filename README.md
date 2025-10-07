@@ -2,8 +2,12 @@ To build python package
 =======
 1. Create venv `python -m venv .venv`
 2. Activate venv `source .venv/bin/activate`
-3. Install nanobind `pip install nanobind develop`
+3. Install nanobind `pip install nanobind build`
 4. To build wheel file `python -m build --wheel`
+
+To build with GUI
+======
+sudo apt install -y libxi-dev freeglut3-dev
 
 qu3e v1.01
 ==========
