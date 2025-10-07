@@ -1,0 +1,10 @@
+[build-system]
+requires = ["nanobind", "scikit-build-core[pyproject]"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "qu3e"
+version = "v1.01"
+description = "qu3e is a compact, light-weight and fast 3D physics engine in C++"
+requires-python = ">=3.10"
+dependencies = []

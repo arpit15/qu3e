@@ -1,3 +1,10 @@
+To build python package
+=======
+1. Create venv `python -m venv .venv`
+2. Activate venv `source .venv/bin/activate`
+3. Install nanobind `pip install nanobind develop`
+4. To build wheel file `python -m build --wheel`
+
 qu3e v1.01
 ==========
 
