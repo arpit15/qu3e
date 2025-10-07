@@ -35,6 +35,8 @@ if(qu3e_bindings)
 	# add extension
 	nanobind_add_module(qu3e_ext src/qu3e_ext.cpp)
 	target_link_libraries(qu3e_ext PRIVATE qu3e)
+	# Install directive for scikit-build-core
+	install(TARGETS qu3e_ext LIBRARY DESTINATION qu3e_ext)
 endif()
 
 
